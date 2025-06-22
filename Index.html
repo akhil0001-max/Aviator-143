@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviator Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aviator Predictor</h1>
+
+        <form method="POST">
+            <label>Enter Last 5 Crash Points (comma separated):</label>
+            <input type="text" name="sequence" placeholder="Example: 1.20, 2.10, 1.05, 4.50, 3.00" required>
+            <button type="submit" name="predict">Predict Next</button>
+        </form>
+
+        {% if prediction %}
+            <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+
+        <form method="POST">
+            <label>Enter Actual Crash Point:</label>
+            <input type="text" name="actual" placeholder="Example: 1.50" required>
+            <button type="submit" name="learn">Update Model</button>
+        </form>
+    </div>
+</body>
+</html>
